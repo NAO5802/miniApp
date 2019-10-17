@@ -1,0 +1,10 @@
+<div>
+  <%= form_with model: @post do |f|%>
+    <h3>Edit post</h3>
+    <div>
+      <%#入力文字数によって高さが変化するように設定したかった%>
+      <%= f.text_area :text, placeholder: 'edit text', style: "width: 500px; height: 100%;"%></div> 
+    <div>
+      <%= f.submit %> </div>
+  <% end %>
+</div>

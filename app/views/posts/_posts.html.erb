@@ -1,0 +1,18 @@
+
+ <div class="row">
+        <div class="col s12 m6">
+          <div class="card #fafafa grey lighten-5">
+            <div class="card-content blue-grey-text text-darken-1">
+              <%= simple_format(post.text)%>
+            </div>
+            
+            <%#materialize.cssで色変更ができなかった%>
+            <div class="card-action">      
+              <% if user_signed_in? && current_user.id == post.user_id %>
+                  <%= link_to 'Edit', "/posts/#{post.id}/edit", method: :get %>       
+                  <%= link_to 'Delete', "/posts/#{post.id}", method: :delete %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>

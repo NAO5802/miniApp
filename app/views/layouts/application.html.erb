@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MiniApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="/posts" class="brand-logo">Mini App</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <% if user_signed_in? %>
+              <li><a href="/posts/new">New</a></li>
+              <li><a href="/users/sign_out" data-method="delete">Log out</a></li>
+            <% else %>
+              <li><a href="/users/sign_in">Sign in</a></li>
+              <li><a href="/users/sign_up">Sign up</a></li>        
+            <% end %>         
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <%= yield %>
+
+
+  </body>
+</html>

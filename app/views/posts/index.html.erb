@@ -1,0 +1,7 @@
+<div class="main_contents">
+  <% @posts.each do |post|%>
+    <%= render partial: "posts", locals:{post: post} %>
+  <% end%>
+
+  <%= paginate @posts %>
+</div>
